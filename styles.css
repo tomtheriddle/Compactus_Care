@@ -1,0 +1,652 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header-left {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    padding-right: 15px; /* Add some padding to prevent cutting off */
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    max-width: 100%; /* Ensure the logo doesn't exceed its container */
+    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
+    padding: 0 5px; /* Add horizontal padding to the logo */
+}
+
+.header-center {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1em;
+}
+
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+.header-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-right .cta-button {
+    font-size: 1em;
+    padding: 8px 16px;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    header .container {
+        flex-direction: column;
+    }
+
+    .header-left, .header-center, .header-right {
+        margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+}
+.cta-button {
+    background-color: #4CAF50; /* Adjust to match brand color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #45a049; /* Darker shade of the brand color */
+}
+
+/* Hero section styles */
+.hero {
+    background-image: url('/Volumes/LaCie/compactus_care/images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+}
+
+/* Hyperlink styles */
+.service-content a,
+.product-content a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.service-content a:hover,
+.product-content a:hover {
+    color: #45a049;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero .content-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.hero .cta-button {
+    margin: 0 10px;
+}
+
+.hero .secondary {
+    background-color: transparent;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.hero .secondary:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.hero .content-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero .content-wrapper h1,
+.hero .content-wrapper p,
+.hero .content-wrapper .cta-button {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero .content-wrapper {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* Services section styles */
+#services {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+#services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    padding-top: 40px; /* Add consistent top padding */
+}
+
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.service {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: calc(33.33% - 20px); /* Increased width, reduced margin */
+    min-height: 250px; /* Ensure all boxes have the same minimum height */
+}
+
+.service:hover {
+    transform: translateY(-5px);
+}
+.product-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+/* Ensure product icons match service icons */
+.product-icon,
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+    object-fit: contain; /* Ensure the icon fits within the dimensions */
+}
+
+.service-content {
+    flex-grow: 1;
+}
+
+/* Products section styles */
+#products {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.product-filters {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.product-filters ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-filters li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.filter-button {
+    background-color: transparent;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-button.active,
+.filter-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.product-icon {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.product-content {
+    flex-grow: 1;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 480px) {
+    .product {
+        height: auto;
+        min-height: 150px;
+    }
+}
+}
+
+.product-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.product h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.learn-more {
+    display: inline-block;
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+    color: #45a049;
+}
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service h3 {
+    margin-bottom: 10px;
+    color: #4CAF50; /* Adjust to match brand color */
+}
+
+.service p {
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow paragraph to grow and push 'Learn More' to bottom */
+}
+
+.learn-more {
+    align-self: flex-start; /* Align 'Learn More' to the left */
+}
+
+.learn-more {
+    color: #4CAF50; /* Adjust to match brand color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Products section styles */
+#products {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+#products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Section heading styles */
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* About section styles */
+#about {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+/* Styles for specific section headings */
+#services h2,
+#products h2,
+#about h2,
+#testimonials h2,
+#contact h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#about .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#about .about-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+#about ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#about ul li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+#about ul li::before {
+    content: "✓";
+    color: #4CAF50;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#about .about-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+#about .about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    #about .container {
+        flex-direction: column;
+    }
+
+    #about .about-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    #about .about-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Testimonials section styles */
+#testimonials {
+    padding: 80px 0;
+    background-color: #f0f0f0; /* Adjust to match brand color */
+}
+
+#testimonials h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Contact section styles */
+#contact {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact input,
+#contact select,
+#contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#contact textarea {
+    height: 150px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+}
+
+footer nav ul {
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+footer nav ul li a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+footer nav ul li a:hover {
+    color: #4CAF50; /* Adjust to match brand color */
+}
+
+.social-icons {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        padding: 100px 0 50px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    #services,
+    #products,
+    #about,
+    #testimonials,
+    #contact {
+        padding: 50px 0;
+    }
+}

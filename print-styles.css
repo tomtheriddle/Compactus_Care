@@ -1,0 +1,42 @@
+@media print {
+    /* Hide unnecessary elements */
+    header, footer, nav, .cta-button, .social-icons {
+        display: none;
+    }
+
+    /* Ensure text is black on white background */
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    /* Remove shadows and adjust margins */
+    .container {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+    }
+
+    /* Ensure links show their URL */
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    /* Break pages after major sections */
+    section {
+        page-break-after: always;
+    }
+
+    /* Adjust font sizes */
+    h1 {
+        font-size: 24pt;
+    }
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    p, li {
+        font-size: 12pt;
+    }
+}

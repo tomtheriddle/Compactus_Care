@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="print-styles.css" media="print">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo-green-square.svg">
+    <link rel="alternate icon" type="image/png" href="logo-green-square.png">
     <script src="script.js" defer></script>
     <script src="main.js" defer></script>
+    <script src="mobile-menu.js" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,9 +44,15 @@
     <header>
         <div class="container">
             <div class="header-left">
-                <img src="/Volumes/LaCie/compactus_care/logo/logo-full.svg" alt="Compactus Care Logo" class="logo">
+                <img src="logo-full.svg" alt="Compactus Care Logo" class="logo">
             </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav class="header-center" aria-label="Main Navigation">
+                <button class="mobile-menu-close" aria-label="Close mobile menu">×</button>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -59,7 +68,7 @@
     </header>
 
     <main id="main-content">
-        <section id="home" class="hero" style="background-image: url('/Volumes/LaCie/compactus_care/banner.jpg'); background-size: cover; background-position: center;">
+        <section id="home" class="hero" style="background-image: url('banner.jpg'); background-size: cover; background-position: center;">
             <div class="hero-overlay"></div>
             <div class="container">
                 <div class="content-wrapper">
@@ -76,7 +85,7 @@
                 <h2 class="section-heading animate-on-scroll">OUR SERVICES</h2>
                 <div class="services-grid animate-on-scroll">
                     <div class="service">
-                        <img src="/Volumes/LaCie/compactus_care/logo/logo-green-square.svg" alt="Wrench icon representing repairs and maintenance services" class="service-icon">
+                        <img src="logo-green-square.svg" alt="Wrench icon representing repairs and maintenance services" class="service-icon">
                         <div class="service-content">
                             <h3>Repairs and Maintenance</h3>
                             <p>Expert compactus repair and maintenance services to keep your storage systems in top condition.</p>
@@ -84,7 +93,7 @@
                         </div>
                     </div>
                     <div class="service">
-                        <img src="/Volumes/LaCie/compactus_care/logo/logo-green-square.svg" alt="Installation tools icon representing installation and setup services" class="service-icon">
+                        <img src="logo-green-square.svg" alt="Installation tools icon representing installation and setup services" class="service-icon">
                         <div class="service-content">
                             <h3>Installation and Setup</h3>
                             <p>Professional installation and setup of compactus and racking systems for optimal space utilization.</p>
@@ -92,7 +101,7 @@
                         </div>
                     </div>
                     <div class="service">
-                        <img src="/Volumes/LaCie/compactus_care/logo/logo-green-square.svg" alt="Custom design icon representing custom racking solutions" class="service-icon">
+                        <img src="logo-green-square.svg" alt="Custom design icon representing custom racking solutions" class="service-icon">
                         <div class="service-content">
                             <h3>Custom Racking Solutions</h3>
                             <p>Tailored racking solutions designed to meet your specific storage needs and space requirements.</p>
@@ -116,7 +125,7 @@
                 </div>
                 <div class="products-list animate-on-scroll">
                     <div class="product" data-category="compactus">
-                        <img src="/Volumes/LaCie/compactus_care/images/compactus.jpg" alt="Standard Compactus System" class="product-icon" style="width: 142.22px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        <img src="compactus.jpg" alt="Standard Compactus System" class="product-icon" style="width: 142.22px; height: 80px; object-fit: cover; border-radius: 10px;">
                         <div class="product-content">
                             <h3>Standard Compactus System</h3>
                             <p>Efficient mobile shelving for maximum storage capacity.</p>
@@ -124,7 +133,7 @@
                         </div>
                     </div>
                     <div class="product" data-category="racking">
-                        <img src="/Volumes/LaCie/compactus_care/images/racking.jpg" alt="Industrial Racking Solution" class="product-icon" style="width: 142.22px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        <img src="racking.jpg" alt="Industrial Racking Solution" class="product-icon" style="width: 142.22px; height: 80px; object-fit: cover; border-radius: 10px;">
                         <div class="product-content">
                             <h3>Industrial Racking Solution</h3>
                             <p>Heavy-duty racking for warehouses and industrial spaces.</p>
@@ -132,7 +141,7 @@
                         </div>
                     </div>
                     <div class="product" data-category="accessories">
-                        <img src="/Volumes/LaCie/compactus_care/images/maintenance.jpg" alt="Maintenance Call Back service" class="product-icon" style="width: 142.22px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        <img src="maintenance.jpg" alt="Maintenance Call Back service" class="product-icon" style="width: 142.22px; height: 80px; object-fit: cover; border-radius: 10px;">
                         <div class="product-content">
                             <h3>Maintenance Call Back</h3>
                             <p>Schedule a maintenance check for your storage systems.</p>
@@ -163,18 +172,17 @@
             <div class="container">
                 <h2 class="section-heading animate-on-scroll">CONTACT US</h2>
                 <div class="contact-wrapper animate-on-scroll">
-                    <form action="https://formspree.io/f/xzzbvzkr" method="POST" data-form-type="contact">
+                    <form>
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <input type="tel" name="phone" placeholder="Your Phone Number">
                         <select name="service" required>
                             <option value="">Select Service Needed</option>
-                            <option value="Repairs and Maintenance">Repairs and Maintenance</option>
-                            <option value="Installation and Setup">Installation and Setup</option>
-                            <option value="Custom Racking Solutions">Custom Racking Solutions</option>
+                            <option value="repairs">Repairs and Maintenance</option>
+                            <option value="installation">Installation and Setup</option>
+                            <option value="custom">Custom Racking Solutions</option>
                         </select>
                         <textarea name="message" placeholder="Your Message" required></textarea>
-                        <input type="hidden" name="_next" value="https://compactuscare.com/thank-you">
                         <button type="submit" class="cta-button">Submit</button>
                     </form>
                 </div>

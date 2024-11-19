@@ -40,15 +40,15 @@ header .container {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    padding-right: 15px; /* Add some padding to prevent cutting off */
+    padding-right: 15px;
 }
 
 .logo {
     height: 50px;
     width: auto;
-    max-width: 100%; /* Ensure the logo doesn't exceed its container */
-    object-fit: contain; /* Maintain aspect ratio while fitting within the container */
-    padding: 0 5px; /* Add horizontal padding to the logo */
+    max-width: 100%;
+    object-fit: contain;
+    padding: 0 5px;
 }
 
 .header-center {
@@ -92,27 +92,129 @@ nav ul li a:hover {
     padding: 8px 16px;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+
+.mobile-menu-close {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 @media (max-width: 768px) {
+    body.menu-active {
+        overflow: hidden;
+    }
+
     header {
         height: auto;
         padding: 0.5rem;
     }
 
     header .container {
-        flex-direction: column;
+        flex-wrap: wrap;
     }
 
-    .header-left, .header-center, .header-right {
-        margin-bottom: 0.5rem;
+    .header-left {
+        flex: 1;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .header-center {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        background-color: #ffffff;
+        padding: 80px 20px 40px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .header-center.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header-center nav {
+        width: 100%;
+    }
+
+    .header-center nav ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-center nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-center nav ul li a {
+        display: block;
+        padding: 10px;
+        font-size: 1.2em;
     }
 
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        margin: 5px 10px;
+        margin: 10px 0;
+    }
+
+    .mobile-menu-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 10000;
+    }
+
+    .header-right {
+        display: none;
     }
 }
 .cta-button {
@@ -254,6 +356,12 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .services-grid {
+        flex-direction: column;
+    }
+}
+
 .service {
     display: flex;
     align-items: flex-start;
@@ -263,12 +371,21 @@ nav ul li a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    width: calc(33.33% - 20px); /* Increased width, reduced margin */
-    min-height: 250px; /* Ensure all boxes have the same minimum height */
+    width: calc(33.33% - 20px);
+    min-height: 250px;
 }
 
 .service:hover {
     transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .service {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 20px;
+        min-height: auto;
+    }
 }
 .product-icon {
     width: 80px;
@@ -301,33 +418,46 @@ nav ul li a:hover {
 }
 
 .product-filters {
-    text-align: center;
     margin-bottom: 40px;
 }
 
 .product-filters ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
 }
 
 .product-filters li {
-    display: inline-block;
-    margin: 0 10px;
+    flex: 0 0 auto;
+    margin: 0 5px;
 }
 
 .filter-button {
     background-color: transparent;
     border: 2px solid #4CAF50;
     color: #4CAF50;
-    padding: 10px 20px;
+    padding: 8px 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 .filter-button.active,
 .filter-button:hover {
     background-color: #4CAF50;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .filter-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }
 
 .products-list {
@@ -431,6 +561,53 @@ nav ul li a:hover {
     text-align: center;
     margin-bottom: 40px;
     color: #333;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.product-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.product-button:hover {
+    transform: translateY(-5px);
+}
+
+.product-button img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.product-button h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-button p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
 /* Section heading styles */

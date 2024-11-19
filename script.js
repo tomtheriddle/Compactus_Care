@@ -1,5 +1,16 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const headerCenter = document.querySelector('.header-center');
+
+    if (mobileMenuToggle && headerCenter) {
+        mobileMenuToggle.addEventListener('click', function() {
+            headerCenter.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+    }
+
     // Debounce function for performance optimization
     function debounce(func, wait = 20, immediate = true) {
         let timeout;

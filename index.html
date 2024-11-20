@@ -154,7 +154,7 @@
                         <div class="product-content">
                             <h3>Standard Compactus System</h3>
                             <p>Efficient mobile shelving for maximum storage capacity.</p>
-                            <a href="#contact" class="smooth-scroll">View Details</a>
+                            <a href="#" class="view-details" data-product="standard-compactus">View Details</a>
                         </div>
                     </div>
                     <div class="product" data-category="racking">
@@ -162,7 +162,7 @@
                         <div class="product-content">
                             <h3>Industrial Racking Solution</h3>
                             <p>Heavy-duty racking for warehouses and industrial spaces.</p>
-                            <a href="#contact" class="smooth-scroll">View Details</a>
+                            <a href="#" class="view-details" data-product="industrial-racking">View Details</a>
                         </div>
                     </div>
                     <div class="product" data-category="accessories">
@@ -170,7 +170,7 @@
                         <div class="product-content">
                             <h3>Maintenance Call Back</h3>
                             <p>Schedule a maintenance check for your storage systems.</p>
-                            <a href="#contact" class="smooth-scroll">View Details</a>
+                            <a href="#" class="view-details" data-product="maintenance-callback">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -214,6 +214,18 @@
             </div>
         </section>
     </main>
+
+    <!-- Product Pop-up -->
+    <div id="product-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="popup-text">
+                <h2 id="popup-title"></h2>
+                <p id="popup-details"></p>
+            </div>
+            <div class="popup-images"></div>
+        </div>
+    </div>
 
     <footer style="background-color: #333333; padding: 20px 0; color: #ffffff;">
         <div class="container" style="text-align: center;">
